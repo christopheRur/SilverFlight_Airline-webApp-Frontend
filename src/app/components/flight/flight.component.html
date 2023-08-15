@@ -1,0 +1,106 @@
+<div class="page-container" >
+  <div class="mq"><marquee  id="marq" behavior="" direction="right" loop="2" > <img src=" ./assets/plan.png"> </marquee></div>
+  <div class="title"><h1>SilverFlight Airline</h1></div>
+
+  <div class="inputData">
+
+    <form action="">
+      <table class="infoTable">
+        <tr>
+          <label for="" class="l-roundTrip">Round trip</label>
+          <input type="radio" id="roundTrip" />
+
+          <label for="" class="l-oneWay">One way</label>
+          <input type="radio" id="oneWay" />
+        </tr>
+        <tr>
+          <td title="Depart">
+            <label for="" style="padding: 1%">DEPART</label>
+            <input type="text" name="pointZero" [(ngModel)]="origin" />
+          </td>
+          <td title="Arrival">
+            <label for="" style="padding: 1%">ARRIVE</label>
+            <input type="text" name="arrival" [(ngModel)]="destination"/>
+          </td>
+          <td title="Depart Date">
+            <label for="" style="padding: 1%">DEPART DATE</label>
+            <input type="date" name="depart" [(ngModel)]="departureD" />
+          </td>
+          <td title="Return Date">
+            <label for="" style="padding: 1%">RETURN DATE</label>
+            <input type="date" name="return"/>
+          </td>
+          <td>
+            <label for="passenger">Passenger(s) </label>
+            <select name="passengerCount" id="passenger" [(ngModel)]="passengers">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+            </select>
+          </td>
+
+        </tr>
+      </table>
+
+      <button id="search" (click)="bookAFlight()">SEARCH</button>
+    </form>
+  </div>
+<pre></pre>
+
+  <div class="avail"  >
+
+
+    <div *ngFor="let airline of silvFlight" class="outer-list">
+      <table style=" width: 100%;">
+        <tr >
+          <div class="inner-list" >
+
+         <td><br>
+          <label for="" id="bk-label">DEPART  <br></label>
+          {{airline.origin}}</td>
+
+         <td><br>
+          <label for="" id="bk-label" >ARRIVE </label> <br>{{airline.destination}}</td>
+
+         <td>
+          <br>
+          <label for="" id="bk-label">DEPART DATE </label> <br>
+          {{airline.departureT}}</td>
+
+
+
+              <td><br>
+            <label for="" id="bk-label">RETURN DATE </label>
+            <br>
+            {{airline.arrivalT}}
+           </td>
+           <td><br>
+            <label for="" id="bk-label">PASSENGER(S) </label> <br>
+            {{airline.passengers}}</td>
+
+          <td> <br>
+            <button class="bookings">book</button></td>
+
+
+        </div>
+        </tr>
+        <br>
+      </table>
+           </div>
+
+
+  </div>
+  <br>
+  <app-admin-input> </app-admin-input>
+
+
+
+  <footer>
+    <div id="container">
+      &copy; 2023 SilverFlight Airlines Co. All Rights Reserved. Use of the
+      SilverFlight websites and our Company Information constitutes acceptance
+      of our Terms and Conditions.
+    </div>
+  </footer>
+</div>

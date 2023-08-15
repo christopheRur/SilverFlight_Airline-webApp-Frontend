@@ -1,0 +1,49 @@
+<button (click)="adminUse()" class="btn">*Admin  use only</button>
+<pre></pre>
+<div class="admin" *ngIf="hideBlock">
+
+  <form action="">
+    <table class="infoTable">
+      <tr>
+        <label for="" class="l-roundTrip">Round trip</label>
+        <input type="radio" id="roundTrip" />
+
+        <label for="" class="l-oneWay">One way</label>
+        <input type="radio" id="oneWay" />
+      </tr>
+      <tr>
+        <td title="Depart">
+          <label for="" style="padding: 1%">DEPART</label>
+          <input type="text" />
+        </td>
+        <td title="Arrival">
+          <label for="" style="padding: 1%">ARRIVE</label>
+          <input type="text" />
+        </td>
+        <td title="Depart Date">
+          <label for="" style="padding: 1%">DEPART DATE</label>
+          <input type="date" />
+        </td>
+        <td title="Return Date">
+          <label for="" style="padding: 1%">RETURN DATE</label>
+          <input type="date" />
+        </td>
+        <td>
+          <label for="passenger">Passenger(s) </label>
+          <select name="" id="">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+          </select>
+        </td>
+
+      </tr>
+    </table>
+
+    <button id="search">SUBMIT</button>
+  </form>
+
+
+</div>
+<div class="space"></div>
