@@ -1,5 +1,5 @@
 <div class="page-container" >
-  <div class="mq"><marquee  id="marq" behavior="" direction="right" loop="2" > <img src=" ./assets/plan.png"> </marquee></div>
+
   <div class="title"><h1>SilverFlight Airline</h1></div>
 
   <div class="inputData">
@@ -43,7 +43,7 @@
         </tr>
       </table>
 
-      <button id="search" (click)="bookAFlight()">SEARCH</button>
+      <button id="search" (click)="lookUpFlight()">SEARCH</button>
     </form>
   </div>
 <pre></pre>
@@ -80,7 +80,7 @@
             {{airline.passengers}}</td>
 
           <td> <br>
-            <button class="bookings">book</button></td>
+            <button class="bookings" (click)="removeFlight(airline)">book</button></td>
 
 
         </div>
@@ -88,13 +88,10 @@
         <br>
       </table>
            </div>
-
-
   </div>
   <br>
   <app-admin-input> </app-admin-input>
-
-
+  <div class="mq"><marquee  id="marq" behavior="" direction="right" loop="2" > <img src=" ./assets/plan.png"> </marquee></div>
 
   <footer>
     <div id="container">

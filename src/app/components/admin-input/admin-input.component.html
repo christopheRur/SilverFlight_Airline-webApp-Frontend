@@ -14,23 +14,23 @@
       <tr>
         <td title="Depart">
           <label for="" style="padding: 1%">DEPART</label>
-          <input type="text" />
+          <input type="text"  name="pointZero" [(ngModel)]="origin" />
         </td>
         <td title="Arrival">
           <label for="" style="padding: 1%">ARRIVE</label>
-          <input type="text" />
+          <input type="text" name="arrival" [(ngModel)]="destination"/>
         </td>
         <td title="Depart Date">
           <label for="" style="padding: 1%">DEPART DATE</label>
-          <input type="date" />
+          <input type="date" name="depart" [(ngModel)]="departureD" />
         </td>
         <td title="Return Date">
           <label for="" style="padding: 1%">RETURN DATE</label>
           <input type="date" />
         </td>
         <td>
-          <label for="passenger">Passenger(s) </label>
-          <select name="" id="">
+          <label for="passenger" >Passenger(s) </label>
+          <select name="passengerCount" id="passenger" [(ngModel)]="passengers">
             <option value="">1</option>
             <option value="">2</option>
             <option value="">3</option>
@@ -41,7 +41,7 @@
       </tr>
     </table>
 
-    <button id="search">SUBMIT</button>
+    <button id="search" (click)="adminBooksAFlight()">SUBMIT</button>
   </form>
 
 
