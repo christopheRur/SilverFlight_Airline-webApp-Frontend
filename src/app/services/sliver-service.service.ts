@@ -43,8 +43,8 @@ public removeBookedFlights(flight: silverFlights):Observable<any>{
     const header = new HttpHeaders({
      'Content-Type': 'application/json',
    });
-   console.log("======>"+flight.destination)
-   this.refreshPage();
+   console.log("===>"+flight.destination)
+
 
   return this.http.post<any>(`${this.apiServerUrl}/air/removeBkFl`,flight,{ headers: header });
 }
@@ -59,7 +59,7 @@ public looksUpFlights(flight: silverFlights):Observable<any>{
    'Content-Type': 'application/json',
  });
  console.log("-->>"+flight.destination)
- this.refreshPage();
+ //this.refreshPage();
 
 return this.http.post<any>(`${this.apiServerUrl}/air/lookup_fli`,flight,{ headers: header });
 }

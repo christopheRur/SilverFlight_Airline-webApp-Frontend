@@ -26,7 +26,9 @@ export class FlightComponent implements OnInit {
   origin: string = '';
   departureD: string = '';
   arrivalD: string = '';
-  passengers: number = 0;
+  passengers: number = 1;
+
+  hideBlock:boolean=false;
 
   ngOnInit(): void {
     this.getFlights();
@@ -42,27 +44,22 @@ export class FlightComponent implements OnInit {
       }
     );
   }
-  /**
-   *Allows user to book a flight
-   */
-  public bookAFlight(): void {
-    let ticket = {
-      passengers: this.passengers,
-      origin: this.origin,
-      destination: this.destination,
-      departureT: this.departureD,
-      arrivalT: this.arrivalD,
-    };
 
-    this.flights.bookAticket(ticket).subscribe(
-      (response: silverFlights) => {
-        console.log('------|------->You made it!');
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+
+
+/**
+ * shows list of available flights
+ */
+
+public showList():boolean{
+
+  this.hideBlock=!this.hideBlock;
+  console.log("show list!");
+
+  return this.hideBlock;
+}
+
+
 
 /**
  *Looks ups available flights
@@ -75,8 +72,6 @@ if(this.origin.length==0 || this.destination.length==0){
   return;
 }
 
-
-
   let flgt: silverFlights = {
     id:100000,
     flightNumber:"WRKDF-9909",
@@ -88,7 +83,20 @@ if(this.origin.length==0 || this.destination.length==0){
   };
 
   this.flights.looksUpFlights(flgt).subscribe(
+
     (response: silverFlights) => {
+      console.log("+lkkllklklklklk-------"+this.origin+"00--000000>>"+response.origin)
+      if(response.origin===this.origin
+        && response.destination===this.destination)
+      {
+
+       this.showList();
+       console.log("+lkkllklklklklk"+this.origin)
+       }
+
+       else{
+        alert("No flight was found!");
+       }
 
     },
     (error: HttpErrorResponse) => {
@@ -112,6 +120,8 @@ if(this.origin.length==0 || this.destination.length==0){
 
     this.flights.removeBookedFlights(fli).subscribe(
       (response: silverFlights) => {
+
+        alert("Your Flight has been Booked!")
         this.refreshPage();
       },
       (error: HttpErrorResponse) => {

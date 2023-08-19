@@ -7,8 +7,7 @@
     <form action="">
       <table class="infoTable">
         <tr>
-          <label for="" class="l-roundTrip">Round trip</label>
-          <input type="radio" id="roundTrip" />
+
 
           <label for="" class="l-oneWay">One way</label>
           <input type="radio" id="oneWay" />
@@ -26,10 +25,7 @@
             <label for="" style="padding: 1%">DEPART DATE</label>
             <input type="date" name="depart" [(ngModel)]="departureD" />
           </td>
-          <td title="Return Date">
-            <label for="" style="padding: 1%">RETURN DATE</label>
-            <input type="date" name="return"/>
-          </td>
+
           <td>
             <label for="passenger">Passenger(s) </label>
             <select name="passengerCount" id="passenger" [(ngModel)]="passengers">
@@ -48,7 +44,7 @@
   </div>
 <pre></pre>
 
-  <div class="avail"  >
+  <div class="avail" *ngIf="hideBlock" >
 
 
     <div *ngFor="let airline of silvFlight" class="outer-list">
@@ -68,13 +64,6 @@
           <label for="" id="bk-label">DEPART DATE </label> <br>
           {{airline.departureT}}</td>
 
-
-
-              <td><br>
-            <label for="" id="bk-label">RETURN DATE </label>
-            <br>
-            {{airline.arrivalT}}
-           </td>
            <td><br>
             <label for="" id="bk-label">PASSENGER(S) </label> <br>
             {{airline.passengers}}</td>
@@ -91,7 +80,7 @@
   </div>
   <br>
   <app-admin-input> </app-admin-input>
-  <div class="mq"><marquee  id="marq" behavior="" direction="right" loop="2" > <img src=" ./assets/plan.png"> </marquee></div>
+  <!-- <div class="mq"><marquee  height="12%" id="marq" behavior="" direction="right" loop="2" > <img src=" ./assets/plan.png"> </marquee></div> -->
 
   <footer>
     <div id="container">
