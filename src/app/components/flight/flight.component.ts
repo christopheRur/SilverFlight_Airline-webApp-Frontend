@@ -85,18 +85,28 @@ if(this.origin.length==0 || this.destination.length==0){
   this.flights.looksUpFlights(flgt).subscribe(
 
     (response: silverFlights) => {
-      console.log("+lkkllklklklklk-------"+this.origin+"00--000000>>"+response.origin)
+
+try{
+
+    if(response.origin===null){
+      alert("No flight was found!");
+    }
+
       if(response.origin===this.origin
         && response.destination===this.destination)
       {
 
        this.showList();
-       console.log("+lkkllklklklklk"+this.origin)
        }
 
        else{
         alert("No flight was found!");
        }
+
+      }catch(e){
+          console.log(e);
+          alert("No flight was found!");
+      }
 
     },
     (error: HttpErrorResponse) => {
@@ -116,17 +126,26 @@ if(this.origin.length==0 || this.destination.length==0){
    *romoves a booked flight
    */
   public removeFlight(fli: silverFlights): void {
-    console.log('------>' + fli);
+    console.log('-->' + fli);
 
-    this.flights.removeBookedFlights(fli).subscribe(
-      (response: silverFlights) => {
+try {
+  alert("Your Flight has been Booked!")
+  this.flights.removeBookedFlights(fli).subscribe(
+    (response: silverFlights) => {
 
-        alert("Your Flight has been Booked!")
-        this.refreshPage();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+
+      this.refreshPage();
+
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  );
+
+} catch (error) {
+  console.log("==>",error);
+
+}
+
   }
 }

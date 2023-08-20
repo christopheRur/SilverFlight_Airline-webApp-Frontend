@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { silverFlights } from '../SilverFlights';
@@ -43,10 +43,15 @@ public removeBookedFlights(flight: silverFlights):Observable<any>{
     const header = new HttpHeaders({
      'Content-Type': 'application/json',
    });
-   console.log("===>"+flight.destination)
+   return this.http.post<any>(`${this.apiServerUrl}/air/removeBkFl`, flight, { headers: header }).pipe(
+    catchError(error => {
+      console.error('Error occurred during HTTP request:', error);
+
+      return throwError('An error occurred during the HTTP request. Please try again.');
+    })
+  );
 
 
-  return this.http.post<any>(`${this.apiServerUrl}/air/removeBkFl`,flight,{ headers: header });
 }
 /**
  * Looks up a flight

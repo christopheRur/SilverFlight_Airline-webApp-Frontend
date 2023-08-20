@@ -5,8 +5,6 @@
   <form action="">
     <table class="infoTable">
       <tr>
-        <label for="" class="l-roundTrip">Round trip</label>
-        <input type="radio" id="roundTrip" />
 
         <label for="" class="l-oneWay">One way</label>
         <input type="radio" id="oneWay" />
@@ -24,17 +22,14 @@
           <label for="" style="padding: 1%">DEPART DATE</label>
           <input type="date" name="depart" [(ngModel)]="departureD" />
         </td>
-        <td title="Return Date">
-          <label for="" style="padding: 1%">RETURN DATE</label>
-          <input type="date" />
-        </td>
+
         <td>
           <label for="passenger" >Passenger(s) </label>
           <select name="passengerCount" id="passenger" [(ngModel)]="passengers">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
         </td>
 
